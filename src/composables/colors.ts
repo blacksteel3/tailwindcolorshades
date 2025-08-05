@@ -46,16 +46,6 @@ function darken(hex: string, intensity: number): string {
   return `#${convert.hsv.hex([hue, saturation, value])}`;
 }
 
-export function getColorName(color: string): string {
-  const { name } = colorNamer(`#${color}`.replace("##", "#")).ntc[0];
-  const sanitizedName = name
-    .replace(/['/]/gi, "")
-    .replace(/\s+/g, "-")
-    .toLowerCase();
-
-  return sanitizedName;
-}
-
 export default function (baseColor?: string): Palette | undefined {
   if (!baseColor) {
     return
