@@ -13,19 +13,6 @@ export type Palette = {
 const CMY_HUES = [180, 300, 60];
 const RGB_HUES = [360, 240, 120, 0];
 
-export function getTextColor(color: string): "#FFF" | "#333" {
-  const rgbColor = convert.hex.rgb(color);
-
-  if (!rgbColor) {
-    return "#333";
-  }
-
-  const [r, g, b] = rgbColor;
-  const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-
-  return luma < 120 ? "#FFF" : "#333";
-}
-
 function hueShift(hues: Array<number>, hue: number, intensity: number) {
   const closestHue = hues.sort((a, b) => (Math.abs(a - hue) - Math.abs(b - hue)))[0],
     hueShift = closestHue - hue;
