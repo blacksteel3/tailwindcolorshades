@@ -59,10 +59,6 @@ function darken(hex: string, intensity: number): string {
   return `#${convert.hsv.hex([hue, saturation, value])}`;
 }
 
-export function isValidHexColorCode(str: string) {
-  return /^#([0-9A-Fa-f]{3}){1,2}$/.test(str);
-}
-
 export function getColorName(color: string): string {
   const { name } = colorNamer(`#${color}`.replace("##", "#")).ntc[0];
   const sanitizedName = name
