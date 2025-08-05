@@ -73,17 +73,12 @@ export function getColorName(color: string): string {
   return sanitizedName;
 }
 
-export function sixDigitsColorHex (hexColor: string) {
-  const hexValue = hexColor.replace('#', '')
-  return `#${(hexValue.length === 3 ? hexValue.replace(/(.)/g, '$1$1') : hexValue.padEnd(6, '0'))}`;
-}
-
 export default function (baseColor?: string): Palette | undefined {
   if (!baseColor) {
     return
   }
 
-  const fullColorCode = sixDigitsColorHex(baseColor)
+  const fullColorCode = baseColor
 
   const name = getColorName(fullColorCode);
 
